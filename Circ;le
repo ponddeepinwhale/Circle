@@ -1,0 +1,53 @@
+#include <iostream>
+#include <SFML/Graphics.hpp>
+using namespace std;
+
+int main()
+{
+    cout << "Input the size of the circle" << endl;
+    int size;
+
+    cin >> size;
+
+    cout << "Size:" << size << endl;
+
+    cout << "Input the color of the circle usng rgb values " << endl;
+    int color;
+    int Color;
+    int calor;
+    
+    cin >> color >> Color >> calor;
+
+    cout << "Color:" << color << Color << calor << endl;
+
+    cout << "Input the position of the circle" << endl;
+    int position;
+    int Position;
+
+    cin >> position >> Position;
+    cout << "Position" << position << Position << endl;
+
+    sf::RenderWindow window(sf::VideoMode(800, 800), "SFML Circle");
+
+    sf::CircleShape circle;
+
+    while (window.isOpen()) {
+
+        sf::Event event;
+        while (window.pollEvent(event)) {
+
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        circle.setRadius(size);
+        circle.setFillColor(sf::Color(color, Color, calor));
+        circle.setPosition(position, Position);
+
+        window.draw(circle);
+        window.display();
+    }
+
+    return 0;
+    
+}
